@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="tanarok"/>
+        <attribute name="authors" value="kotel"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-05-14 04:05:42 du."/>
+        <attribute name="created" value="a290ZWw7REVTS1RPUC1ISUJRSkRVOzIwMjUtMDUtMTQ7MDI6NDg6MDMgZHUuOzMwMzE="/>
+        <attribute name="edited" value="a290ZWw7REVTS1RPUC1ISUJRSkRVOzIwMjUtMDUtMTQ7MDQ6MDU6NDIgZHUuOzE7MzEzNw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="&quot;Adja meg az oszt&#225;ly l&#233;tsz&#225;m&#225;t&quot;" newline="True"/>
+            <declare name="letszam" type="Integer" array="False" size=""/>
+            <input variable="letszam"/>
+            <declare name="jegyek" type="Integer" array="True" size="letszam"/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="max" type="Integer" array="False" size=""/>
+            <declare name="min" type="Integer" array="False" size=""/>
+            <declare name="&#246;sszeg" type="Integer" array="False" size=""/>
+            <declare name="&#225;tlag" type="Real" array="False" size=""/>
+            <for variable="i" start="0" end="letszam-1" direction="inc" step="1">
+                <assign variable="jegyek[i]" expression="Random(10) + 1"/>
+            </for>
+            <for variable="i" start="0" end="letszam-1" direction="inc" step="1">
+                <output expression="&quot;Di&#225;k &quot;" newline="True"/>
+                <output expression="i" newline="True"/>
+                <output expression="&quot; : &quot;" newline="True"/>
+                <output expression="jegyek[i]" newline="True"/>
+            </for>
+            <assign variable="&#246;sszeg" expression="0"/>
+            <for variable="i" start="0" end="letszam-1" direction="inc" step="1">
+                <assign variable="&#246;sszeg" expression="&#246;sszeg + jegyek[i]"/>
+            </for>
+            <assign variable="&#225;tlag" expression="&#246;sszeg/letszam"/>
+            <output expression="&quot;Az oszt&#225;ly &#225;tlagos jegye: &quot;" newline="True"/>
+            <output expression="&#225;tlag" newline="True"/>
+            <assign variable="max" expression="1"/>
+            <assign variable="min" expression="10"/>
+            <for variable="i" start="0" end="letszam-1" direction="inc" step="1">
+                <if expression="jegyek[i] &gt; max">
+                    <then>
+                        <assign variable="max" expression="jegyek[i]"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="jegyek[i] &lt; min">
+                    <then>
+                        <assign variable="min" expression="jegyek[i]"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <output expression="&quot;Legmagasabb jegy: &quot;" newline="True"/>
+            <output expression="max" newline="True"/>
+            <output expression="&quot;Legalacsonyabb jegy: &quot;" newline="True"/>
+            <output expression="min" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
